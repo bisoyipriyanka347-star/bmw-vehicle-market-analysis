@@ -16,6 +16,6 @@ This project analyzes BMW vehicle listings using SQL and Power BI.
 - Medium mileage cars show higher average price
 
 ## 📁 Files Included
-- bmwdata.sql
-- dashboard_screenshot.png
-- project_report.pdf
+- bmw.csv
+- BMW_DASHBOARD.pbix
+- bmw_sales_analysis.sql
