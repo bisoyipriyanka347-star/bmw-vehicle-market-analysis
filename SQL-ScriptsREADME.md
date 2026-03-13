@@ -1,6 +1,9 @@
 This folder contains all SQL queries used for data cleaning and analysis.
+
 CREATE DATABASE BMW_DATA;
+
 USE BMW_DATA;
+
 CREATE TABLE bmwdata (
     model VARCHAR(100),
     year INT,
@@ -12,6 +15,7 @@ CREATE TABLE bmwdata (
     mpg VARCHAR(50),
     engineSize VARCHAR(50)
 );
+
 LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/bmw.csv"
 INTO TABLE bmwdata
 FIELDS TERMINATED BY ','
@@ -21,10 +25,12 @@ IGNORE 1 ROWS;
 
 SElect * FROM bmwdata;
 
-ALTER TABLE bmwdata
-ADD id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+ALTER 
+    TABLE bmwdata
+    ADD id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
 
-SELECT model, year, price, mileage, engineSize, COUNT(*)
+SELECT 
+    model, year, price, mileage, engineSize, COUNT(*)
 FROM bmwdata
 GROUP BY model, year, price, mileage, engineSize
 HAVING COUNT(*) > 1;
@@ -63,7 +69,8 @@ MODIFY mpg FLOAT;
 UPDATE bmwdata
 SET engineSize = NULLIF(engineSize, '');
 
-SELECT engineSize
+SELECT 
+    engineSize
 FROM bmwdata
 WHERE engineSize IS NOT NULL
 AND engineSize NOT REGEXP '^[0-9]+(\\.[0-9]+)?$';
